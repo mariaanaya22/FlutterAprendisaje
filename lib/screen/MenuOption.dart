@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/screen/Suma.dart';
+import 'package:flutter_application_3/screen/registro.dart';
 
 class Menuoption extends StatefulWidget {
   const Menuoption({super.key});
@@ -45,7 +46,11 @@ class _MenuoptionState extends State<Menuoption> {
             title: Text("Registro"),
             leading: Icon(Icons.account_circle_sharp),
             trailing: Icon(Icons.arrow_circle_right_outlined),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => registreUser())
+                      );
+            },
           ),
           ),
              Card(child: ListTile(

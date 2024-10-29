@@ -10,6 +10,21 @@ class suma extends StatefulWidget {
 
 // ignore: camel_case_types
 class _sumaState extends State<suma> {
+  //va la parte logica
+  final TextEditingController _number1 = TextEditingController();
+  final TextEditingController _number2 = TextEditingController();
+  double _resultado = 0.0;
+
+  void _CalcularSuma() {
+    //el texto ingresado _number1 a numero de tipo double si falla se le accina por defecto 0
+    double number1 = double.tryParse(_number1.text) ?? 0.0;
+    double number2 = double.tryParse(_number2.text) ?? 0.0;
+
+    setState(() {
+      _resultado = number1 + number2;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,18 +56,40 @@ class _sumaState extends State<suma> {
             ),
             SizedBox(height: 20),
             TextFormField(
+              //agrgear la propiedad controller
+              controller: _number1,
               decoration: InputDecoration(
                   labelText: 'Primer numero',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30))),
             ),
-               SizedBox(height: 20),
+            SizedBox(height: 20),
             TextFormField(
+              controller: _number2,
               decoration: InputDecoration(
                   labelText: 'Segundo  numero',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30))),
-            )
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                _CalcularSuma();
+              },
+              child: Text(
+                'Calcular',
+                style: TextStyle(color: Colors.pink[100]),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                foregroundColor: Colors.pink[100],
+                minimumSize: Size(double.infinity, 50),
+              ),
+            ),
+            SizedBox(height: 20),
+            //PARA QUE ME DE EL RESULTADO  $_resultado
+            Text('Resultado: $_resultado',
+                style: TextStyle(fontSize: 20, color: Colors.pink[100])),
           ],
         ),
       ),
