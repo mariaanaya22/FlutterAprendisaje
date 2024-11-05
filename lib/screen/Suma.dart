@@ -28,6 +28,7 @@ class _sumaState extends State<suma> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: Transform.translate(
           offset: Offset(0, 5),
@@ -52,7 +53,7 @@ class _sumaState extends State<suma> {
               style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black),
+                  color: Colors.white),
             ),
             SizedBox(height: 20),
             TextFormField(
@@ -78,10 +79,10 @@ class _sumaState extends State<suma> {
               },
               child: Text(
                 'Calcular',
-                style: TextStyle(color: Colors.pink[100]),
+                style: TextStyle(color: const Color.fromARGB(255, 221, 19, 89)),
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
+                backgroundColor: Colors.white,
                 foregroundColor: Colors.pink[100],
                 minimumSize: Size(double.infinity, 50),
               ),
